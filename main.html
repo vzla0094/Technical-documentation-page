@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <link rel="stylesheet" type="text/css" href="prism.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:800|Lora|Yantramanav:700|Montserrat:300" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+  </head>
+  
+  <body>
+    <header id="main_header">
+      <nav id="navbar">
+        <header><h3>JS Documentation</h3></header>
+        
+        <div>
+          <a class="nav-link" href="#Introduction"><div><h5>Introduction</h5></div></a>
+          
+          <div>
+            <a href="#what_is_javascript"><h6>What is JavaScript</h6></a>
+          </div>
+        </div>
+        
+        <div>
+          <a class="nav-link" href="#Grammar_and_types"><div><h5>Grammar and types</h5></div></a>
+          
+          <div>
+            <a href="#basics"><h6>Basics</h6></a>
+            <a href="#comments"><h6>Comments</h6></a>
+            <a href="#declarations"><h6>Declarations</h6></a>
+            <a href="#data_structures_and_types"><h6>Data structures and types</h6></a>
+          </div>
+        </div>
+        
+        <div>
+          <a class="nav-link" href="#Control_flow_and_error_handling"><div><h5>Control flow and error handling</h5></div></a>
+          
+          <div>
+            <a href="#block_statement"><h6>Block statement</h6></a>
+            <a href="#conditional_statement"><h6>Condition statements</h6></a>
+          </div>
+        </div>
+        
+        <div>
+          <a class="nav-link" href="#Loops_and_iteration"><div><h5>Loops and iteration</h5></div></a>
+          
+          <div>
+            <a href="#for_statement"><h6>for statement</h6></a>
+            <a href="#do_while_statement"><h6>Do...while statement</h6></a>
+            <a href="#while_statement"><h6>While statement</h6></a>
+          </div>
+        </div>
+        
+        <div>
+          <a class="nav-link" href="#Functions"><div><h5>Functions</h5></div></a>
+          <div>
+            <a href="#defining_functions"><h6>Defining functions</h6></a>
+            <a href="#calling_functions"><h6>Calling functions</h6></a>
+          </div>
+        </div>
+        
+        <div>
+          
+        </div>
+      </nav>
+    </header>    
+      
+    <main id="main-doc">        
+      <section id="Introduction" class="main-section">
+        <header>
+          <h2>Introduction</h2>
+        </header>
+        <h3 id="what_is_javascript">What is JavaScript?</h3><p>JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive (e.x. having complex animations, clickable buttons, popup menus, etc.).  There are also more advanced server side versions of JavaScript such as Node.Js which allow you to add more functionality to a website than simply downloading files (such as realtime collaboration between multiple computers). Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.<br><br>
+
+        JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:</p>
+        
+        <ul>
+          <li>Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.</li>
+          
+          <li>Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.</li>
+        </ul>
+        
+        <p>This means that in the browser, JavaScript can change the way the webpage (DOM) looks. And, likewise, Node.js JavaScript on the server can respond to custom requests from code written in the browser.</p>
+        
+      </section>
+      
+      <section id="Grammar_and_types" class="main-section">
+        <header>
+          <h2>Grammar and types</h2>
+        </header>
+        
+        <h3 id="basics">Basics</h3>
+        
+        <p>JavaScript borrows most of its syntax from Java, but is also influenced by Awk, Perl and Python.<br><br>
+
+        JavaScript is case-sensitive and uses the Unicode character set. For example, the word Früh (which means "early" in German) could be used as a variable name.
+        
+        <pre><code class="lang-javascript line-numbers">var Früh = "foobar";</code></pre>
+        
+        <p>But, the variable früh is not the same as Früh because JavaScript is case sensitive.<br><br>
+          
+        In JavaScript, instructions are called statements and are separated by semicolons (;).<br><br>
+          
+        A semicolon is not necessary after a statement if it is written on its own line. But if more than one statement on a line is desired, then they must be separated by semicolons. ECMAScript also has rules for automatic insertion of semicolons (ASI) to end statements. (For more information, see the detailed reference about JavaScript's lexical grammar.) It is considered best practice, however, to always write a semicolon after a statement, even when it is not strictly needed. This practice reduces the chances of bugs getting into the code.<br><br>
+          
+        The source text of JavaScript script gets scanned from left to right and is converted into a sequence of input elements which are tokens, control characters, line terminators, comments, or whitespace. Spaces, tabs, and newline characters are considered whitespace.</p>
+        
+        <h3 id="comments">Comments</h3>
+        
+        <p>The syntax of comments is the same as in C++ and in many other languages:</p>
+        
+        <pre><code class="lang-javascript line-numbers">// a one line comment
+ 
+/* this is a longer, 
+ * multi-line comment
+ */
+ 
+/* You can't, however, /* nest comments */ SyntaxError */</code>
+</pre>
+        <p>Comments behave like whitespace and are discarded during script execution.</p>
+        
+        <h3 id="declarations">Declarations</h3>
+        
+        <p>There are three kinds of declarations in JavaScript.</p>
+        
+        <code class="codesubt">var</code>
+        <p>&emsp;&emsp;Declares a variable, optionally initializing it to a value.</p>
+        
+        <code class="codesubt">let</code>
+        <p>&emsp;&emsp;Declares a block-scoped, local variable, optionally initializing it to a value.</p>
+        
+        <code class="codesubt">const</code>
+        <p>&emsp;&emsp;Declares a block-scoped, read-only named constant.</p>
+        
+        <h3 id="data_structures_and_types">Data structures and types</h3>
+        
+        <h4>Data types</h4>
+        
+        <p>The latest ECMAScript standard defines seven data types:</p>
+        
+        <ul>
+          <li>Six data types that are primitives:            
+            <ul>
+              <li>Boolean. <code>true</code> and <code>false</code>.</li>
+              <li>null. A special keyword denoting a null value. Because JavaScript is case-sensitive, <code>null</code> is not the same as <code>Null</code>, <code>NULL</code>, or any other variant.</li>
+              <li>undefined. A top-level property whose value is not defined.</li>
+              <li>Number. An integer or floating point number. For example: <code>42</code> or <code>3.14159</code>.</li>
+              <li>String. A sequence of characters that represent a text value. For example:  "Howdy"</li>
+              <li>Symbol (new in ECMAScript 2015). A data type whose instances are unique and immutable.</li>
+            </ul>
+          </li>
+          <li>and Object</li>
+        </ul>
+        
+        <p>Although these data types are relatively few, they enable you to perform useful functions with your applications. Objects and functions are the other fundamental elements in the language. You can think of objects as named containers for values, and functions as procedures that your application can perform.</p>
+      </section>
+      
+      <section id="Control_flow_and_error_handling" class="main-section">
+        <header>
+          <h2>Control flow and error handling</h2>
+        </header>
+        
+        <h3 id="block_statement">Block statement</h3>
+        
+        <p>The most basic statement is a block statement that is used to group statements. The block is delimited by a pair of curly brackets:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>{
+  statement_1;
+  statement_2;
+  .
+  .
+  .
+  statement_n;
+}</code></pre>
+        
+        <h4>Example</h4>
+        
+        <p>Block statements are commonly used with control flow statements (e.g. <code>if</code>, <code>for</code>, <code>while</code>).</p>
+        
+        <pre class="lang-javascript line-numbers"><code>while (x &#60; 10) {
+  x++;
+}</code></pre>
+        
+        <p>Here, <code>{ x++; }</code> is the block statement.</p>
+        
+        <p></p>
+        
+        <h3 id="conditional_statement">Conditional statements</h3>
+        <p>A conditional statement is a set of commands that executes if a specified condition is true. JavaScript supports two conditional statements: <code>if...else</code> and <code>switch</code>.</p>
+        
+        <h4>if...else statement</h4>
+        
+        <p>Use the <code>if</code> statement to execute a statement if a logical condition is true. Use the optional <code>else</code> clause to execute a statement if the condition is false. An <code>if</code> statement looks as follows:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>if (condition) {
+  statement_1;
+} else {
+  statement_2;
+}</code></pre>
+        
+        <p>Here the <code>condition</code> can be any expression that evaluates to true or false. See Boolean for an explanation of what evaluates to <code>true</code> and <code>false</code>. If <code>condition</code> evaluates to true, statement_1 is executed; otherwise, statement_2 is executed. statement_1 and statement_2 can be any statement, including further nested <code>if</code> statements.<br><br>
+          
+          You may also compound the statements using <code>else if</code> to have multiple conditions tested in sequence, as follows:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>if (condition_1) {
+  statement_1;
+} else if (condition_2) {
+  statement_2;
+} else if (condition_n) {
+  statement_n;
+} else {
+  statement_last;
+} </code></pre>
+        
+        <p>In the case of multiple conditions only the first logical condition which evaluates to true will be executed. To execute multiple statements, group them within a block statement ({ ... }) . In general, it's good practice to always use block statements, especially when nesting <code>if</code> statements:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>if (condition) {
+  statement_1_runs_if_condition_is_true;
+  statement_2_runs_if_condition_is_true;
+} else {
+  statement_3_runs_if_condition_is_false;
+  statement_4_runs_if_condition_is_false;
+}</code></pre>
+        
+        <p>It is advisable to not use simple assignments in a conditional expression, because the assignment can be confused with equality when glancing over the code. For example, do not use the following code:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>if (x = y) {
+  /* statements here */
+}</code></pre>
+        
+        <p>If you need to use an assignment in a conditional expression, a common practice is to put additional parentheses around the assignment. For example:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>if ((x = y)) {
+  /* statements here */
+}</code></pre>
+      </section>
+      
+      <section id="Loops_and_iteration" class="main-section">
+        <header>
+          <h2>Loops and iteration</h2>
+        </header>
+        
+        <p>You can think of a loop as a computerized version of the game where you tell someone to take X steps in one direction then Y steps in another; for example, the idea "Go five steps to the east" could be expressed this way as a loop:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var step;
+for (step = 0; step &#60; 5; step++) {
+  // Runs 5 times, with values of step 0 through 4.
+  console.log('Walking east one step');
+}</code></pre>
+        
+        <p>There are many different kinds of loops, but they all essentially do the same thing: they repeat an action some number of times (and it's actually possible that number could be zero). The various loop mechanisms offer different ways to determine the start and end points of the loop. There are various situations that are more easily served by one type of loop over the others.<br><br>
+        
+        The statements for loops provided in JavaScript are:</p>
+        
+        <ul>
+          <li>for statement</li>
+          <li>do...while statement</li>
+          <li>while statement</li>
+          <li>labeled statement</li>
+          <li>break statement</li>
+          <li>continue statement</li>
+          <li>for...in statement</li>
+          <li>for...of statement</li>
+        </ul>
+        
+        <h3 id="for_statement">for statement</h3>
+        
+        <p>A for loop repeats until a specified condition evaluates to false. The JavaScript for loop is similar to the Java and C for loop. A for statement looks as follows:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>for ([initialExpression]; [condition]; [incrementExpression])
+  statement</code></pre>
+        
+        <p>When a for loop executes, the following occurs:</p>
+        
+        <ol>
+          <li>The initializing expression initialExpression, if any, is executed. This expression usually initializes one or more loop counters, but the syntax allows an expression of any degree of complexity. This expression can also declare variables.</li>
+          <li>The condition expression is evaluated. If the value of condition is true, the loop statements execute. If the value of condition is false, the for loop terminates. If the condition expression is omitted entirely, the condition is assumed to be true.</li>
+          <li>The statement executes. To execute multiple statements, use a block statement ({ ... }) to group those statements.</li>
+          <li>If present, the update expression incrementExpression is executed.</li>
+          <li>Control returns to step 2.</li>
+        </ol>
+        
+        <h4>Example</h4>
+        
+        <p>The following function contains a <code>for</code> statement that counts the number of selected options in a scrolling list (a <code>&#60;select&#62;</code> element that allows multiple selections). The <code>for</code> statement declares the variable <code>i</code> and initializes it to zero. It checks that <code>i</code> is less than the number of options in the <code>&#60;select&#62;</code> element, performs the succeeding <code>if</code> statement, and increments <code>i</code> by one after each pass through the loop.</p>
+        
+        <pre><code class="lang-html line-numbers">&lt;form name=&quot;selectForm&quot;&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;musicTypes&quot;&gt;Choose some music types, then click the button below:&lt;/label&gt;
+    &lt;select id=&quot;musicTypes&quot; name=&quot;musicTypes&quot; multiple=&quot;multiple&quot;&gt;
+      &lt;option selected=&quot;selected&quot;&gt;R&amp;B&lt;/option&gt;
+      &lt;option&gt;Jazz&lt;/option&gt;
+      &lt;option&gt;Blues&lt;/option&gt;
+      &lt;option&gt;New Age&lt;/option&gt;
+      &lt;option&gt;Classical&lt;/option&gt;
+      &lt;option&gt;Opera&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/p&gt;
+  &lt;p&gt;&lt;input id=&quot;btn&quot; type=&quot;button&quot; value=&quot;How many are selected?&quot; /&gt;&lt;/p&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+function howMany(selectObject) {
+  var numberSelected = 0;
+  for (var i = 0; i &lt; selectObject.options.length; i++) {
+    if (selectObject.options[i].selected) {
+      numberSelected++;
+    }
+  }
+  return numberSelected;
+}
+
+var btn = document.getElementById('btn');
+btn.addEventListener('click', function() {
+  alert('Number of options selected: ' + howMany(document.selectForm.musicTypes));
+});
+&lt;/script&gt;</code></pre>
+        
+        <h3 id="do_while_statement">do...while statement</h3>
+        
+        <p>The <code>do...while</code> statement repeats until a specified condition evaluates to false. A do...while statement looks as follows:</p>
+        
+        <pre class="lang-javascript"><code>do
+  statement
+while (condition);</code></pre>
+        
+        <p><code>statement</code> is always executed once before the condition is checked (and then again until the while condition returns false). To execute multiple statements, use a block statement <code>({ ... })</code> to group those statements. If <code>condition</code> is true, the statement executes again. At the end of every execution, the condition is checked. When the condition is false, execution stops and control passes to the statement following <code>do...while</code>.</p>
+        
+        <h4>Example</h4>
+        
+        <p>In the following example, the <code>do</code> loop iterates at least once and reiterates until i is no longer less than 5.</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var i = 0;
+do {
+  i += 1;
+  console.log(i);
+} while (i &lt; 5);</code></pre>
+        
+        <h3 id="while_statement">while statement</h3>
+        
+        <p>A <code>while</code> statement executes its statements as long as a specified condition evaluates to true. A <code>while</code> statement looks as follows:</p>
+        
+        <pre class="lang-javascript"><code>while (condition)
+  statement</code></pre>
+        
+        <p>If the condition becomes false, <code>statement</code> within the loop stops executing and control passes to the statement following the loop.<br><br>
+
+        The condition test occurs before <code>statement</code> in the loop is executed. If the condition returns true, <code>statement</code> is executed and the condition is tested again. If the condition returns false, execution stops and control is passed to the statement following <code>while</code>.<br><br>
+
+        To execute multiple statements, use a block statement ({ ... }) to group those statements.</p>
+        
+        <h4>Example 1</h4>
+        
+        <p>The following <code>while</code> loop iterates as long as n is less than three:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var n = 0;
+var x = 0;
+while (n &lt; 3) {
+  n++;
+  x += n;
+}</code></pre>
+        
+        <p>With each iteration, the loop increments <code>n</code> and adds that value to <code>x</code>. Therefore, <code>x</code> and <code>n</code> take on the following values:</p>
+        
+        <ul>
+          <li>After the first pass: <code>n</code> = 1 and <code>x</code> = 1</li>
+          <li>After the second pass: <code>n</code> = 2 and <code>x</code> = 3</li>
+          <li>After the third pass: <code>n</code> = 3 and <code>x</code> = 6</li>
+        </ul>
+        
+        <p>After completing the third pass, the condition <code>n &lt; 3</code> is no longer true, so the loop terminates.</p>
+        
+        <h4>Example 2</h4>
+        
+        <p>Avoid infinite loops. Make sure the condition in a loop eventually becomes false; otherwise, the loop will never terminate. The statements in the following <code>while</code> loop execute forever because the condition never becomes false:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>while (true) {
+  console.log('Hello, world!');
+}</code></pre>
+      </section>
+      
+      <section id="Functions" class="main-section">
+        <header>
+          <h2>Functions</h2>
+        </header>
+        
+        <h3 id="defining_functions">Defining functions</h3>
+        
+        <h4>Function declarations</h4>
+        
+        <p>A <strong>function definition</strong> (also called a <strong>function declaration</strong>, or <strong>function statement</strong>) consists of the <code>function</code> keyword,  followed by:</p>
+        
+        <ul>
+          <li>The name of the function.</li>
+          <li>A list of parameters to the function, enclosed in parentheses and separated by commas.</li>
+          <li>The JavaScript statements that define the function, enclosed in curly brackets, <code>{ }</code>.</li>
+        </ul>
+        
+        <p>For example, the following code defines a simple function named <code>square</code>:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>function square(number) {
+  return number * number;
+}</code></pre>
+        
+        <p>The function <code>square</code> takes one parameter, called <code>number</code>. The function consists of one statement that says to return the parameter of the function (that is, <code>number</code>) multiplied by itself. The statement <code>return</code> specifies the value returned by the function.</p>
+        
+        <pre class="lang-javascript line-numbers"><code>return number * number;</code></pre>
+        
+        <p>Primitive parameters (such as a number) are passed to functions <strong>by value</strong>; the value is passed to the function, but if the function changes the value of the parameter, <strong>this change is not reflected globally or in the calling function</strong>.<br><br>
+
+        If you pass an object (i.e. a non-primitive value, such as <code>Array</code> or a user-defined object) as a parameter and the function changes the object's properties, that change is visible outside the function, as shown in the following example:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>function myFunc(theObject) {
+  theObject.make = 'Toyota';
+}
+
+var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+var x, y;
+
+x = mycar.make; // x gets the value "Honda"
+
+myFunc(mycar);
+y = mycar.make; // y gets the value "Toyota"
+                // (the make property was changed by the function)</code></pre>
+        
+        <h4>Function expressions</h4>
+        
+        <p>While the function declaration above is syntactically a statement, functions can also be created by a function expression. Such a function can be <strong>anonymous</strong>; it does not have to have a name. For example, the function <code>square</code> could have been defined as:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var square = function(number) { return number * number; };
+var x = square(4); // x gets the value 16</code></pre>
+        
+        <p>However, a name can be provided with a function expression and can be used inside the function to refer to itself, or in a debugger to identify the function in stack traces:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var factorial = function fac(n) { return n &lt; 2 ? 1 : n * fac(n - 1); };
+
+console.log(factorial(3));</code></pre>
+        
+        <p>Function expressions are convenient when passing a function as an argument to another function. The following example shows a <code>map</code> function that should receive a function as first argument and an array as second argument. </p>
+        
+        <pre class="lang-javascript line-numbers"><code>function map(f, a) {
+  var result = [],i; // Create a new Array
+  for (i = 0; i != a.length; i++)
+    result[i] = f(a[i]);
+  return result;
+}</code></pre>
+        
+        <p>In the following code our function receives a function defined by a function expression and executes it for every element of the array received as a second argument. </p>
+        
+        <pre class="lang-javascript line-numbers"><code>function map(f, a) {
+  var result = []; // Create a new Array
+  var i; // Declare variable
+  for (i = 0; i != a.length; i++)
+    result[i] = f(a[i]);
+  return result;
+}
+var f = function(x) {
+   return x * x * x; 
+}
+var numbers = [0, 1, 2, 5, 10];
+var cube = map(f,numbers);
+console.log(cube);</code></pre>
+        
+        <p>Function returns: [0, 1, 8, 125, 1000].<br><br>
+
+        In JavaScript, a function can be defined based on a condition. For example, the following function definition defines <code>myFunc</code> only if <code>num</code> equals 0:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var myFunc;
+if (num === 0) {
+  myFunc = function(theObject) {
+    theObject.make = 'Toyota';
+  }
+}</code></pre>
+        
+        <p>In addition to defining functions as described here, you can also use the <code>Function</code> constructor to create functions from a string at runtime, much like <code>eval()</code>.<br><br>
+
+        A <strong>method</strong> is a function that is a property of an object.</p>
+        
+        <h3 id="calling_functions">Calling functions</h3>
+        
+        <p>Defining a function does not execute it. Defining the function simply names the function and specifies what to do when the function is called. <strong>Calling</strong> the function actually performs the specified actions with the indicated parameters. For example, if you define the function <code>square</code>, you could call it as follows:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>square(5);</code></pre>
+        
+        <p>The preceding statement calls the function with an argument of 5. The function executes its statements and returns the value 25.<br><br>
+
+        Functions must be in scope when they are called, but the function declaration can be hoisted (appear below the call in the code), as in this example:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>console.log(square(5));
+/* ... */
+function square(n) { return n * n; }</code></pre>
+        
+        <p>The scope of a function is the function in which it is declared, or the entire program if it is declared at the top level.</p>
+        
+        <div class="note">
+          <p><strong>Note:</strong> This works only when defining the function using the above syntax (i.e. <code>function funcName(){}</code>). The code below will not work. That means, function hoisting only works with function declaration and not with function expression.</p>
+          
+          <pre class="lang-javascript line-numbers"><code>console.log(square); // square is hoisted with an initial value undefined.
+console.log(square(5)); // TypeError: square is not a function
+var square = function(n) { 
+  return n * n; 
+}</code></pre>
+        </div>
+        
+        
+        
+        <p>The arguments of a function are not limited to strings and numbers. You can pass whole objects to a function. The <code>show_props()</code> function (defined in Working with objects) is an example of a function that takes an object as an argument.<br><br>
+
+        A function can call itself. For example, here is a function that computes factorials recursively:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>function factorial(n) {
+  if ((n === 0) || (n === 1))
+    return 1;
+  else
+    return (n * factorial(n - 1));
+}</code></pre>
+        
+        <p>You could then compute the factorials of one through five as follows:</p>
+        
+        <pre class="lang-javascript line-numbers"><code>var a, b, c, d, e;
+a = factorial(1); // a gets the value 1
+b = factorial(2); // b gets the value 2
+c = factorial(3); // c gets the value 6
+d = factorial(4); // d gets the value 24
+e = factorial(5); // e gets the value 120</code></pre>
+        
+        <p>There are other ways to call functions. There are often cases where a function needs to be called dynamically, or the number of arguments to a function vary, or in which the context of the function call needs to be set to a specific object determined at runtime. It turns out that functions are, themselves, objects, and these objects in turn have methods (see the <code>Function</code> object). One of these, the <code>apply()</code> method, can be used to achieve this goal.</p>
+      </section>
+      
+      <div class="source"><p>All the information in this page is taken from <a class="normalink" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction" target="_blank">MDN</a></p></div>
+    </main>
+    
+    <script src="prism.js" type="text/javascript"></script>
+    
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+  <!--  <pre class="lang-javascript line-numbers"><code></code></pre> -->
+  
+</html>
